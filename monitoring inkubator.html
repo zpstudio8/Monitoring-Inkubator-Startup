@@ -1,386 +1,832 @@
-// Monitoring Inkubator Startup 2026+
-// Next.js + TailwindCSS Ready
-// GitHub Ready Project
-// Created for LP2STM / PT LTM / DosenPlus Project
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoring Inkubator Startup 2026+</title>
 
-const stats = [
-  { title: 'Startup Aktif', value: '48+' },
-  { title: 'Talenta Digital', value: '320+' },
-  { title: 'Founder Mahasiswa', value: '96+' },
-  { title: 'Produk Digital', value: '112+' },
-];
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-const ranks = [
-  {
-    title: 'Bronze',
-    desc: 'Belajar Dasar Startup & Teknologi',
-  },
-  {
-    title: 'Silver',
-    desc: 'Mulai Project & Team Building',
-  },
-  {
-    title: 'Gold',
-    desc: 'Founder Startup Aktif',
-  },
-  {
-    title: 'Platinum',
-    desc: 'Scale Up & Leadership',
-  },
-  {
-    title: 'Elite',
-    desc: 'Mentor, Investor & Research Circle',
-  },
-];
+  <style>
 
-const startups = [
-  {
-    name: 'AgriTech Village',
-    category: 'AgriTech',
-    progress: '78%',
-  },
-  {
-    name: 'EduTech Academy',
-    category: 'EduTech',
-    progress: '62%',
-  },
-  {
-    name: 'AI Smart Research',
-    category: 'Artificial Intelligence',
-    progress: '91%',
-  },
-];
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-const roadmap = [
-  {
-    year: '2026',
-    desc: 'Launch Inkubator Startup Mahasiswa',
-  },
-  {
-    year: '2027',
-    desc: 'Regional Startup Competition',
-  },
-  {
-    year: '2028',
-    desc: 'Marketplace Startup Desa',
-  },
-  {
-    year: '2029',
-    desc: 'AI & AgriTech Ecosystem',
-  },
-  {
-    year: '2030',
-    desc: 'Innovation Valley Indonesia',
-  },
-];
+    :root{
+      --primary:#06b6d4;
+      --secondary:#3b82f6;
+      --dark:#020617;
+      --card:#0f172a;
+      --soft:#94a3b8;
+      --white:#ffffff;
+      --border:rgba(255,255,255,0.08);
+    }
 
-const features = [
-  'Realtime Startup Monitoring',
-  'AI Mentor Assistant',
-  'Talent Analytics Dashboard',
-  'RPL Rank Intelligence',
-  'Pitch Deck Workspace',
-  'Founder Performance Tracking',
-  'Digital Productivity System',
-  'Research & Innovation Hub',
-];
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--dark);
+      color:var(--white);
+      overflow-x:hidden;
+    }
 
-export default function StartupMonitoring2026() {
-  return (
-    <main className="min-h-screen bg-slate-950 text-white overflow-hidden">
-      {/* HERO SECTION */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-600/10 to-indigo-700/20" />
+    html{
+      scroll-behavior:smooth;
+    }
 
-        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-cyan-300 text-sm mb-6">
-                Monitoring Inkubator Startup 2026+
-              </div>
+    .bg-glow{
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(6,182,212,0.18), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(59,130,246,0.15), transparent 35%);
+      z-index:-1;
+    }
 
-              <h1 className="text-5xl lg:text-7xl font-black leading-tight mb-6">
-                Ekosistem
-                <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                  Startup Teknokrat
-                </span>
-              </h1>
+    .container{
+      width:min(1200px,90%);
+      margin:auto;
+    }
 
-              <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-2xl">
-                Platform monitoring startup mahasiswa, inkubator digital,
-                talent AI, dan inovasi teknologi untuk membangun generasi
-                founder masa depan Indonesia.
-              </p>
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(16px);
+      background:rgba(2,6,23,0.75);
+      border-bottom:1px solid var(--border);
+    }
 
-              <div className="flex flex-wrap gap-4">
-                <button className="rounded-2xl bg-cyan-500 hover:bg-cyan-400 transition px-7 py-4 font-bold text-slate-950 shadow-2xl shadow-cyan-500/20">
-                  Launch Dashboard
-                </button>
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
 
-                <button className="rounded-2xl border border-slate-700 hover:border-cyan-400 transition px-7 py-4 font-bold">
-                  Explore Startup
-                </button>
-              </div>
-            </div>
+    .logo{
+      font-size:1.3rem;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
 
-            <div>
-              <div className="rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-xl p-8 shadow-2xl">
-                <div className="flex justify-between items-center mb-8">
-                  <div>
-                    <h3 className="text-2xl font-black">
-                      Startup Monitoring Center
-                    </h3>
-                    <p className="text-slate-400 text-sm">
-                      LP2STM • LTM • DosenPlus
-                    </p>
-                  </div>
+    .menu{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
 
-                  <div className="h-4 w-4 rounded-full bg-green-400 animate-pulse" />
-                </div>
+    .menu a{
+      color:var(--soft);
+      text-decoration:none;
+      transition:.3s;
+      font-size:.95rem;
+    }
 
-                <div className="grid grid-cols-2 gap-5">
-                  {stats.map((item, index) => (
-                    <div
-                      key={index}
-                      className="rounded-2xl border border-slate-700 bg-slate-800/80 p-5"
-                    >
-                      <div className="text-3xl font-black text-cyan-400 mb-2">
-                        {item.value}
-                      </div>
-                      <div className="text-sm text-slate-300">
-                        {item.title}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+    .menu a:hover{
+      color:var(--white);
+    }
 
-                <div className="mt-8 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/20 p-5">
-                  <div className="flex justify-between mb-2 text-sm">
-                    <span>Growth Progress</span>
-                    <span>78%</span>
-                  </div>
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:100px;
+    }
 
-                  <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="w-[78%] h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
 
-      {/* STATS */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-slate-800 bg-slate-900 p-8 hover:border-cyan-500 transition"
-            >
-              <div className="text-5xl font-black text-cyan-400 mb-4">
-                {item.value}
-              </div>
+    .badge{
+      display:inline-flex;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(6,182,212,0.12);
+      border:1px solid rgba(6,182,212,0.2);
+      color:#67e8f9;
+      margin-bottom:25px;
+      font-size:.9rem;
+    }
 
-              <div className="text-slate-300">{item.title}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+    .hero h1{
+      font-size:5rem;
+      line-height:1.05;
+      margin-bottom:25px;
+      font-weight:900;
+    }
 
-      {/* RANK SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-cyan-300 text-sm mb-5">
-            RPL Rank System
-          </div>
+    .hero h1 span{
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
 
-          <h2 className="text-4xl lg:text-5xl font-black mb-5">
-            Monitoring Talenta Digital
-          </h2>
+    .hero p{
+      color:var(--soft);
+      line-height:1.9;
+      margin-bottom:35px;
+      font-size:1.1rem;
+    }
 
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Sistem monitoring perkembangan skill, startup, leadership,
-            produktivitas, dan inovasi mahasiswa berbasis teknologi modern.
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 28px;
+      border-radius:18px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      transition:.35s;
+      font-size:1rem;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      box-shadow:0 15px 40px rgba(6,182,212,0.25);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:1px solid var(--border);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      border-color:var(--primary);
+    }
+
+    .dashboard-card{
+      background:rgba(15,23,42,0.82);
+      border:1px solid var(--border);
+      border-radius:35px;
+      padding:35px;
+      backdrop-filter:blur(20px);
+      box-shadow:0 25px 80px rgba(0,0,0,0.35);
+    }
+
+    .dashboard-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+
+    .pulse{
+      width:14px;
+      height:14px;
+      background:#22c55e;
+      border-radius:50%;
+      animation:pulse 1.4s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:1}
+      50%{transform:scale(1.6);opacity:.4}
+      100%{transform:scale(1);opacity:1}
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .stat-box{
+      background:#111c31;
+      border-radius:24px;
+      padding:24px;
+      border:1px solid var(--border);
+      transition:.35s;
+    }
+
+    .stat-box:hover{
+      transform:translateY(-5px);
+      border-color:rgba(6,182,212,0.4);
+    }
+
+    .stat-box h2{
+      font-size:2.4rem;
+      color:#67e8f9;
+      margin-bottom:8px;
+    }
+
+    .progress{
+      margin-top:30px;
+      background:#111c31;
+      padding:20px;
+      border-radius:24px;
+      border:1px solid var(--border);
+    }
+
+    .bar{
+      width:100%;
+      height:12px;
+      background:#1e293b;
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+
+    .fill{
+      width:82%;
+      height:100%;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      border-radius:999px;
+      animation:grow 2s ease;
+    }
+
+    @keyframes grow{
+      from{width:0}
+      to{width:82%}
+    }
+
+    section{
+      padding:110px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-top:15px;
+      font-weight:900;
+    }
+
+    .section-title p{
+      color:var(--soft);
+      max-width:700px;
+      margin:auto;
+      margin-top:20px;
+      line-height:1.8;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(15,23,42,0.75);
+      border:1px solid var(--border);
+      padding:35px;
+      border-radius:30px;
+      transition:.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(6,182,212,0.06),transparent);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(6,182,212,0.35);
+    }
+
+    .card-icon{
+      width:70px;
+      height:70px;
+      border-radius:22px;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      margin-bottom:25px;
+    }
+
+    .card h3{
+      font-size:1.6rem;
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:var(--soft);
+      line-height:1.8;
+    }
+
+    .startup-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .startup-card{
+      background:rgba(15,23,42,0.75);
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      transition:.35s;
+    }
+
+    .startup-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(59,130,246,0.45);
+    }
+
+    .startup-banner{
+      height:220px;
+      background:linear-gradient(135deg,#0891b2,#2563eb,#4f46e5);
+      position:relative;
+    }
+
+    .startup-content{
+      padding:30px;
+    }
+
+    .startup-category{
+      color:#67e8f9;
+      margin-bottom:10px;
+      font-size:.9rem;
+    }
+
+    .startup-content h3{
+      font-size:1.8rem;
+      margin-bottom:20px;
+    }
+
+    .small-bar{
+      width:100%;
+      height:10px;
+      background:#1e293b;
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+
+    .small-fill{
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+    }
+
+    .cta{
+      background:linear-gradient(135deg,rgba(6,182,212,0.12),rgba(59,130,246,0.12));
+      border:1px solid rgba(6,182,212,0.15);
+      border-radius:45px;
+      padding:80px 50px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta h2{
+      font-size:4rem;
+      margin-bottom:25px;
+      font-weight:900;
+    }
+
+    .cta p{
+      color:var(--soft);
+      max-width:800px;
+      margin:auto;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:40px 0;
+      color:var(--soft);
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    .scroll-top{
+      position:fixed;
+      right:25px;
+      bottom:25px;
+      width:55px;
+      height:55px;
+      border-radius:18px;
+      border:none;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      font-size:1.2rem;
+      cursor:pointer;
+      display:none;
+      z-index:999;
+      box-shadow:0 15px 40px rgba(6,182,212,0.25);
+    }
+
+    @media(max-width:900px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:3.4rem;
+      }
+
+      .section-title h2{
+        font-size:2.4rem;
+      }
+
+      .cta h2{
+        font-size:2.8rem;
+      }
+
+      .menu{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Startup Monitoring 2026+</div>
+
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#talent">Talenta</a></li>
+        <li><a href="#startup">Startup</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="badge">
+        Monitoring Inkubator Startup 2026+
+      </div>
+
+      <h1>
+        Ekosistem
+        <span>Startup Teknokrat</span>
+      </h1>
+
+      <p>
+        Platform monitoring startup mahasiswa, AI talent, inkubator digital,
+        dan inovasi teknologi modern untuk membangun founder masa depan
+        Indonesia dari desa menuju dunia.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary">
+          Launch Dashboard
+        </button>
+
+        <button class="btn btn-outline">
+          Explore Startup
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-card">
+
+      <div class="dashboard-top">
+        <div>
+          <h2>Monitoring Center</h2>
+          <p style="color:var(--soft);margin-top:8px;">
+            LP2STM • PT LTM • DosenPlus
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {ranks.map((rank, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-slate-800 bg-slate-900 p-6 hover:border-cyan-400 transition"
-            >
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 mb-6" />
+        <div class="pulse"></div>
+      </div>
 
-              <h3 className="text-2xl font-black mb-3">
-                {rank.title}
-              </h3>
+      <div class="stats-grid">
 
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {rank.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="bg-slate-900/50 border-y border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-2 text-blue-300 text-sm mb-5">
-                Core Features
-              </div>
-
-              <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
-                Platform Inkubator Startup Masa Depan
-              </h2>
-
-              <p className="text-slate-400 text-lg leading-relaxed">
-                Dibangun untuk startup ecosystem, AI monitoring,
-                founder management, dan pengembangan talenta digital berbasis
-                komunitas, kampus, dan desa.
-              </p>
-            </div>
-
-            <div className="grid gap-5">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="rounded-2xl border border-slate-800 bg-slate-950 p-5 flex items-center gap-4 hover:border-cyan-500 transition"
-                >
-                  <div className="h-4 w-4 rounded-full bg-cyan-400" />
-                  <div>{feature}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* STARTUP SHOWCASE */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-14">
-          <div className="inline-flex rounded-full border border-indigo-400/20 bg-indigo-400/10 px-4 py-2 text-indigo-300 text-sm mb-5">
-            Startup Showcase
-          </div>
-
-          <h2 className="text-4xl lg:text-5xl font-black mb-5">
-            Startup Mahasiswa Terbaik
-          </h2>
+        <div class="stat-box">
+          <h2>48+</h2>
+          <p>Startup Aktif</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {startups.map((startup, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-slate-800 bg-slate-900 p-7 hover:border-indigo-500 transition"
-            >
-              <div className="h-48 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 mb-6" />
-
-              <div className="text-sm text-cyan-400 mb-2">
-                {startup.category}
-              </div>
-
-              <h3 className="text-2xl font-black mb-4">
-                {startup.name}
-              </h3>
-
-              <div className="mb-3 flex justify-between text-sm">
-                <span className="text-slate-400">Progress</span>
-                <span>{startup.progress}</span>
-              </div>
-
-              <div className="w-full h-3 rounded-full bg-slate-700 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                  style={{ width: startup.progress }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ROADMAP */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-14">
-          <div className="inline-flex rounded-full border border-indigo-400/20 bg-indigo-400/10 px-4 py-2 text-indigo-300 text-sm mb-5">
-            Vision Roadmap
-          </div>
-
-          <h2 className="text-4xl lg:text-5xl font-black mb-5">
-            Roadmap 2026 — 2030
-          </h2>
+        <div class="stat-box">
+          <h2>320+</h2>
+          <p>Talenta Digital</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {roadmap.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-slate-800 bg-slate-900 p-6 hover:border-indigo-500 transition"
-            >
-              <div className="text-4xl font-black text-indigo-400 mb-5">
-                {item.year}
-              </div>
-
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        <div class="stat-box">
+          <h2>96+</h2>
+          <p>Founder Mahasiswa</p>
         </div>
-      </section>
 
-      {/* CTA */}
-      <section className="px-6 pb-24">
-        <div className="max-w-6xl mx-auto rounded-[40px] border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-14 lg:p-20 text-center overflow-hidden">
-          <h2 className="text-4xl lg:text-6xl font-black mb-6 leading-tight">
-            Bangun Startup
-            <span className="block text-cyan-400">
-              dari Desa untuk Dunia
-            </span>
-          </h2>
-
-          <p className="text-slate-300 max-w-3xl mx-auto text-lg leading-relaxed mb-10">
-            Platform monitoring startup mahasiswa dan ekosistem teknologi
-            modern untuk menciptakan generasi founder, inovator, dan talenta
-            digital Indonesia.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-5">
-            <button className="rounded-2xl bg-cyan-500 hover:bg-cyan-400 transition px-8 py-4 font-bold text-slate-950">
-              Start Ecosystem
-            </button>
-
-            <button className="rounded-2xl border border-slate-700 hover:border-cyan-400 transition px-8 py-4 font-bold">
-              Join Community
-            </button>
-          </div>
+        <div class="stat-box">
+          <h2>112+</h2>
+          <p>Produk Digital</p>
         </div>
-      </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-black text-cyan-400 mb-2">
-              Monitoring Inkubator Startup 2026+
-            </h3>
+      </div>
 
-            <p className="text-slate-500 max-w-xl">
-              LP2STM • PT Lembaga Teknokrat Mandiri • DosenPlus Project •
-              Teknokrat Mandiri Institute
-            </p>
+      <div class="progress">
+        <div style="display:flex;justify-content:space-between;">
+          <span>Growth Ecosystem</span>
+          <span>82%</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="talent">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="badge">RPL Rank Intelligence</div>
+      <h2>Monitoring Talenta Digital</h2>
+      <p>
+        Sistem monitoring perkembangan skill, produktivitas, startup,
+        leadership, dan inovasi mahasiswa berbasis AI dan teknologi modern.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>Bronze</h3>
+        <p>Belajar dasar startup, coding, UI/UX, dan digital productivity.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>Silver</h3>
+        <p>Mulai membangun project, teamwork, dan personal branding digital.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>Gold</h3>
+        <p>Founder startup aktif dengan MVP dan validasi market.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>Elite</h3>
+        <p>Mentor, investor circle, dan innovation leadership ecosystem.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="startup">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="badge">Startup Showcase</div>
+      <h2>Startup Mahasiswa Terbaik</h2>
+      <p>
+        Showcase startup mahasiswa dan inovasi teknologi yang sedang berkembang.
+      </p>
+    </div>
+
+    <div class="startup-grid">
+
+      <div class="startup-card">
+        <div class="startup-banner"></div>
+
+        <div class="startup-content">
+          <div class="startup-category">AgriTech</div>
+          <h3>AgriTech Village</h3>
+
+          <div style="display:flex;justify-content:space-between;">
+            <span>Progress</span>
+            <span>78%</span>
           </div>
 
-          <div className="text-slate-500 text-sm">
-            Built with Next.js + TailwindCSS • GitHub Ready
+          <div class="small-bar">
+            <div class="small-fill" style="width:78%"></div>
           </div>
         </div>
-      </footer>
-    </main>
-  );
-}
+      </div>
+
+      <div class="startup-card">
+        <div class="startup-banner"></div>
+
+        <div class="startup-content">
+          <div class="startup-category">EduTech</div>
+          <h3>EduTech Academy</h3>
+
+          <div style="display:flex;justify-content:space-between;">
+            <span>Progress</span>
+            <span>86%</span>
+          </div>
+
+          <div class="small-bar">
+            <div class="small-fill" style="width:86%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="startup-card">
+        <div class="startup-banner"></div>
+
+        <div class="startup-content">
+          <div class="startup-category">Artificial Intelligence</div>
+          <h3>AI Smart Research</h3>
+
+          <div style="display:flex;justify-content:space-between;">
+            <span>Progress</span>
+            <span>91%</span>
+          </div>
+
+          <div class="small-bar">
+            <div class="small-fill" style="width:91%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="badge">Vision Roadmap</div>
+      <h2>Roadmap 2026 — 2030</h2>
+      <p>
+        Strategi pengembangan startup ecosystem dan talent digital Indonesia.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>2026</h3>
+        <p>Launch inkubator startup mahasiswa dan komunitas teknologi.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>2027</h3>
+        <p>Regional startup competition dan talent expansion.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>2028</h3>
+        <p>Marketplace startup desa dan produk digital Indonesia.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"></div>
+        <h3>2030</h3>
+        <p>Innovation Valley dan pusat talenta startup nasional.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+
+    <div class="cta">
+      <h2>
+        Bangun Startup
+        dari Desa untuk Dunia
+      </h2>
+
+      <p>
+        Platform monitoring startup mahasiswa dan ekosistem teknologi modern
+        untuk menciptakan generasi founder, inovator, peneliti, dan talenta
+        digital Indonesia.
+      </p>
+
+      <div class="hero-buttons" style="justify-content:center;">
+        <button class="btn btn-primary">
+          Start Ecosystem
+        </button>
+
+        <button class="btn btn-outline">
+          Join Community
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <h3 style="margin-bottom:10px;color:#67e8f9;">
+        Monitoring Inkubator Startup 2026+
+      </h3>
+
+      <p>
+        LP2STM • PT Lembaga Teknokrat Mandiri • DosenPlus Project
+      </p>
+    </div>
+
+    <div>
+      <p>
+        Built with HTML • CSS • JavaScript
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop">
+  ↑
+</button>
+
+<script>
+
+  const scrollTopBtn = document.getElementById('scrollTop');
+
+  window.addEventListener('scroll',()=>{
+
+    if(window.scrollY > 400){
+      scrollTopBtn.style.display='block';
+    }else{
+      scrollTopBtn.style.display='none';
+    }
+
+  });
+
+  scrollTopBtn.addEventListener('click',()=>{
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+  });
+
+  // Animate cards on scroll
+
+  const cards = document.querySelectorAll('.card,.startup-card,.stat-box');
+
+  const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+      if(entry.isIntersecting){
+        entry.target.style.opacity='1';
+        entry.target.style.transform='translateY(0px)';
+      }
+
+    });
+
+  },{
+    threshold:0.1
+  });
+
+  cards.forEach(card=>{
+    card.style.opacity='0';
+    card.style.transform='translateY(40px)';
+    card.style.transition='all .8s ease';
+    observer.observe(card);
+  });
+
+</script>
+
+</body>
+</html>
